@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 import os
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 DATABASE = "donors.db"
 
@@ -80,6 +80,6 @@ def seek_donation():
 
     return render_template('donors_list.html', donors=donors, blood_group=blood_group)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # Uses Vercel's assigned port or defaults to 5000
     app.run(host='0.0.0.0', port=port, debug=True)
